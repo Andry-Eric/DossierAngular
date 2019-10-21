@@ -10,6 +10,7 @@ import { ActivatedRoute } from "@angular/router";
 export class SingleAppareilComponent implements OnInit {
   name: string = "Appareil";
   status: string = "Statut";
+  id: number;
 
   constructor(
     private appareilService: AppareilService,
@@ -20,5 +21,6 @@ export class SingleAppareilComponent implements OnInit {
     const id = this.route.snapshot.params["id"];
     this.name = this.appareilService.getAppareilById(+id).name;
     this.status = this.appareilService.getAppareilById(+id).status;
+    this.id = id;
   }
 }

@@ -1,12 +1,18 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
-        <li class="nav-item ">
-            <a [routerLink]="[ '/auth']" routerLinkActive="active">Authentification</a> &nbsp;
+        <li class="nav-item " routerLinkActive="active">
+            <a [routerLink]="['/auth']">Authentification</a> &nbsp;
         </li>
-        <li class="nav-item">
-            <a [routerLink]="[ '/appareils']" routerLinkActive="active">Appareils</a>
+        <li class="nav-item" routerLinkActive="active">
+            <a [routerLink]="['/appareils']">Appareils</a> &nbsp;
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a [routerLink]="['/edit']"> Nouvel appareil</a>
         </li>
     </ul>
+    <div class="pull-right" style="color: white;">
+        <p>Vous êtes connecté depuis secondes!</p>
+    </div>
 </nav>
 <div class="container-fluid">
     <div row>
