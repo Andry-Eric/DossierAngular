@@ -18,6 +18,7 @@ import { AuthGuard } from "./services/auth-guard.service";
 import { EditAppareilComponent } from "./edit-appareil/edit-appareil.component";
 import { UserListComponent } from "./user-list/user-list.component";
 import { UserService } from "./services/User.service";
+import { NewUserComponent } from "./new-user/new-user.component";
 
 const appRoutes: Routes = [
   {
@@ -31,8 +32,18 @@ const appRoutes: Routes = [
     component: SingleAppareilComponent
   },
   { path: "edit", canActivate: [AuthGuard], component: EditAppareilComponent },
+  {
+    path: "users",
+    canActivate: [AuthGuard],
+    component: UserListComponent
+  },
+  {
+    path: "newUser",
+    canActivate: [AuthGuard],
+    component: NewUserComponent
+  },
   { path: "auth", component: AuthComponent },
-  { path: "users", component: UserListComponent },
+
   { path: "not-found", component: FourOhFourComponent }, // mettez à la fin de ligne
   { path: "**", redirectTo: "/not-found" }
 ];
@@ -47,7 +58,8 @@ const appRoutes: Routes = [
     SingleAppareilComponent,
     FourOhFourComponent,
     EditAppareilComponent,
-    UserListComponent
+    UserListComponent,
+    NewUserComponent
   ],
   //  importer routes dans imports
   imports: [
