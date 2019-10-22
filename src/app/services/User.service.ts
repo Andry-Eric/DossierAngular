@@ -5,7 +5,7 @@ export class UserService {
   private users: User[] = [
     {
       firstName: "Andry-Eric",
-      lastName: "Ransrianasolo",
+      lastName: "Randrianasolo",
       email: "andryericrandrianasolo@gmail.com",
       drinkPreference: "Coca",
       hobbies: ["coder", "la dégustation de café"]

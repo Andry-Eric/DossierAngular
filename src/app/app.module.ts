@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     component: UserListComponent
   },
   {
-    path: "newUser",
+    path: "new-user",
     canActivate: [AuthGuard],
     component: NewUserComponent
   },
