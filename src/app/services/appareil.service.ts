@@ -6,23 +6,7 @@ import { Injectable } from "@angular/core";
 export class AppareilService {
   appareilSubject = new Subject<any[]>();
 
-  private appareils = [
-    {
-      id: 1,
-      name: "Machine à laver",
-      status: "allumé"
-    },
-    {
-      id: 2,
-      name: "Télévision",
-      status: "allumé"
-    },
-    {
-      id: 3,
-      name: "Ordinateur",
-      status: "éteint"
-    }
-  ];
+  private appareils = [];
 
   constructor(private httpClient: HttpClient) {}
 
@@ -88,6 +72,22 @@ export class AppareilService {
         },
         error => {
           console.log("Erreur de sauvegarde !" + error);
+        }
+      );
+  }
+
+  getAppareilsFromServer() {
+    this.httpClient
+      .get<any[]>(
+        "https://http-client-demo-842f3.firebaseio.com/appareils.json"
+      )
+      .subscribe(
+        response => {
+          this.appareils = response;
+          this.emitAppareilSubject();
+        },
+        error => {
+          console.log("Erreur de chargement !" + error);
         }
       );
   }
